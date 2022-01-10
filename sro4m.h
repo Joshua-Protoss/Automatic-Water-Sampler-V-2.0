@@ -9,6 +9,8 @@ class Sro4m{
   
   public:
   Sro4m(int TRIG, int ECHO){
+  _TRIG = TRIG;
+  _ECHO = ECHO;
   pinMode(_TRIG, OUTPUT);
   pinMode(_ECHO, INPUT);
   };
@@ -23,7 +25,7 @@ class Sro4m{
 
   _duration = pulseIn(_ECHO, HIGH);
   _distance = _duration*0.034/2;
-  delay(10);
+  //delay(10);
 
   return _distance;
   }

@@ -37,7 +37,7 @@ class ServoAng{
       delay(1000);
       break;
   default:                               //Original Position First Bottle
-      _servo.write(38);
+      _servo.write(36);
       delay(1000);
       break;
 }
