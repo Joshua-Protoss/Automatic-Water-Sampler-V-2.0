@@ -414,12 +414,18 @@ void touchSettings(){
       }
 
      
-      if ((x>=205) && (x<=305) && (y>=185) && (y<=225))                          //OKE Button 
+      if ((x>=205) && (x<=305) && (y>=185) && (y<=225))                          //PumpSettings Button 
       {
         drawFrame(205, 185, 305, 225);
-        currentPage = '1';
-        myGLCD.clrScr();
-        drawMulaiSampling();
+        currentMillis = millis();
+        previousMillis = currentMillis;
+        pump.startPump();
+        while(currentMillis - previousMillis < (unsigned long) (5000)){
+          currentMillis = millis();
+          
+        }
+        pump.stopPump();
+        delay(1000);
       }
       
       
@@ -767,7 +773,7 @@ void drawSettings(){
   myGLCD.drawRoundRect (205, 185, 305, 225);
   myGLCD.setBackColor(16, 167, 103);
   myGLCD.setColor(255, 255, 255);
-  myGLCD.print("OK", 215, 195);
+  myGLCD.print("PUMP", 215, 195);
   myGLCD.setBackColor(0, 0, 0);
 
   myGLCD.setColor(16, 167, 103);
